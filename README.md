@@ -133,7 +133,7 @@ The notebook infers the vector dimension from the local GloVe file and uses it f
 The LSTM baseline uses:
 
 - Pre-trained GloVe word embeddings.
-- Optional character-level embeddings for OOV handling.
+- Character-level embeddings for OOV handling.
 - Unidirectional `nn.LSTM`.
 - Token-level linear classifier.
 - Cross-entropy loss with ignored padding labels.
