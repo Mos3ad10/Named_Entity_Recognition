@@ -189,7 +189,7 @@ Use `seqeval` for entity-level metrics:
 | F1 | Balance between precision and recall |
 | Per-entity F1 | Shows whether the model is better at `PER`, `ORG`, `LOC`, or `MISC` |
 
-Each model should produce a `seqeval` classification report, then the notebook compares the models in one table using precision, recall, F1, and accuracy.
+Each model produces a `seqeval` classification report, and the notebook compares the models using precision, recall, F1, and accuracy.
 
 Models to compare:
 
@@ -197,6 +197,19 @@ Models to compare:
 - BiLSTM
 - BiLSTM + CRF
 - BERT token classifier
+
+### Model Comparison
+
+| Model | Precision | Recall | F1 | Accuracy |
+|---|---:|---:|---:|---:|
+| BERT | 0.8912 | 0.9069 | 0.8990 | 0.9713 |
+| BiLSTM + CRF | 0.8486 | 0.8407 | 0.8446 | 0.9693 |
+| BiLSTM | 0.8197 | 0.8201 | 0.8199 | 0.9678 |
+| LSTM | 0.7341 | 0.7587 | 0.7462 | 0.9581 |
+
+### Where the CRF Improves Boundary Detection
+
+The BiLSTM + CRF achieved a higher test F1 score (0.8446) than the standard BiLSTM (0.8199), an improvement of about 2.47 percentage points. A standard BiLSTM predicts each token label independently, while the CRF learns transition scores between consecutive IOB labels and decodes the best label sequence for the complete sentence. This can discourage inconsistent transitions, such as `I-ORG` appearing without a suitable `B-ORG`, and helps produce more coherent entity boundaries.
 
 The transformer model used for the BERT token classifier is:
 
