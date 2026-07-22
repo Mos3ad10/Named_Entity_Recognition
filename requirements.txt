@@ -1,0 +1,12 @@
+torch
+numpy==1.26.4
+pandas
+matplotlib
+scikit-learn
+datasets
+evaluate
+seqeval
+transformers
+accelerate
+pytorch-crf
+gradio>=6.20.0,<7

@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+
+.ipynb_checkpoints/
+.vscode/
+
+*.log
+*.out.log
+*.err.log
+
+# Local datasets and Hugging Face cache.
+hf_cache/
+conll2003_dataset/
+conll2003_csv/
+embeddings/*
+!embeddings/.gitkeep
+
+# Large local artifacts. Keep these outside normal GitHub pushes.
+*.pt
+*.pth
+checkpoints/*
+
+# Keep small checkpoint folders visible in the repo.
+!checkpoints/.gitkeep
+!checkpoints/BERT_tokenizer/
+!checkpoints/BERT_tokenizer/*.json
+!checkpoints/transformer_ner_tokenizer/
+!checkpoints/transformer_ner_tokenizer/*.json
+!README_assets/
+!README_assets/.gitkeep
