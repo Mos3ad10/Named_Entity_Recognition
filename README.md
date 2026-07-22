@@ -142,8 +142,8 @@ The LSTM baseline uses:
 
 The BiLSTM model uses:
 
-- Word embeddings.
-- Character-level embeddings or subword fallback features.
+- Pre-trained GloVe word embeddings.
+- Character-level embeddings for OOV handling.
 - Bidirectional `nn.LSTM`.
 - Token-level linear classifier.
 - Cross-entropy loss with ignored padding labels.
@@ -152,8 +152,8 @@ The BiLSTM model uses:
 
 The BiLSTM + CRF model uses:
 
-- Word embeddings.
-- Character-level embeddings.
+- Pre-trained GloVe word embeddings.
+- Character-level embeddings for OOV handling.
 - Bidirectional `nn.LSTM`.
 - Linear emission layer.
 - CRF decoding to model valid tag transitions across the whole sentence.
