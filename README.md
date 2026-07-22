@@ -36,16 +36,6 @@ B-MISC, I-MISC
 | `checkpoints/` | Local model checkpoints and tokenizer files |
 | `README_assets/` | Charts and images generated from the notebook for this README |
 
-Large local artifacts are ignored by Git:
-
-| Local artifact | Why ignored |
-|---|---|
-| `checkpoints/*.pt`, `checkpoints/*.pth` | Model checkpoints are too large for normal GitHub upload |
-| `embeddings/*` | Pre-trained vector files are large and should stay local |
-| `hf_cache/` | Hugging Face download/cache files are reproducible locally |
-| `conll2003_dataset/`, `conll2003_csv/` | Dataset exports can be regenerated from the notebook |
-| `*.log`, `__pycache__/`, `.vscode/` | Local runtime/editor files |
-
 ## Notebook Workflow
 
 The notebook follows this order:
@@ -232,40 +222,6 @@ The app:
 - Highlights entities by type.
 - Uses a local fine-tuned checkpoint when available.
 - Falls back to a Hugging Face demo model when local checkpoints are not present.
-
-## Run Locally
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-After fine-tuning, save the transformer model here:
-
-```text
-checkpoints/transformer_ner_model/
-```
-
-Run the app:
-
-```bash
-python ner_tagger_app.py
-```
-
-Open the local app:
-
-```text
-http://127.0.0.1:7860
-```
-
-Test the best saved model directly:
-
-```bash
-python test_best_model.py "Peter Blackburn works for the European Commission in Brussels."
-```
-
-The script loads the trained local BERT token-classification checkpoint from `checkpoints/transformer_ner_model`.
 
 ## Example App Input
 
